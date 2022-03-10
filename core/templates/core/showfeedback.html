@@ -1,0 +1,44 @@
+{% extends 'core/index.html' %}
+
+{% block content %}
+<div class="container-fluid" >
+    <div class="col-sm-5 offset-3">
+        {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                {% endfor %}
+        {% endif %}  
+    </div>
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <td class="col">Name</td>
+                <td class="col">Feedback</td>
+                <td class="col">Action</td>
+            </tr>
+        </thead>
+        {% for fm in form %}
+        <tr>
+            <td >{{fm.Name}}</td>
+            <td >{{fm.Feedback}}</td>
+            <td>
+                <form action="{% url 'deletefeed' fm.id %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="submit" value="Delete" class="btn btn-danger ">
+                </form>
+              </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+{% endblock content %}
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card mt-2">
+            <img src="{{fm.Image.url}}" alt="" class="card-img-top" height="200px">
+        </div>
+    </div> 
+</div>

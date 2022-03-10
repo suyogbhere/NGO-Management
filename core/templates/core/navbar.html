@@ -1,0 +1,46 @@
+
+<div>
+    <ul class="nav pt-2 pb-2 px-3 text-white" style="background-color: #03045e;">
+
+        <li class="nav-item">
+        <a class="nav-link active text-white" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+        </li>
+        {% if not request.user.is_authenticated %}
+        <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'signup' %}">Signup</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'adminlogin' %}">Admin Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'helperlogin' %}">Helper Login</a></li>
+              </ul>
+        </li>
+        {% else %}
+        {% if request.user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'adminhome' %}">Dashboard</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'helperhome' %}">Dashboard</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'uploadpage' %}">Upload Image</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'showimage' %}">images</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'feedback' %}">Feedback</a>
+        </li>
+    </ul>
+</div>

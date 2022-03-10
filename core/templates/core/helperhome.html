@@ -1,0 +1,21 @@
+{% extends 'core/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid" style="background-color: #ade8f4;">
+    <div class="col-sm-5 offset-3">
+        {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                {% endfor %}
+        {% endif %}  
+    </div>
+    <div class="row col-sm-5 offset-3 shadow ">
+        <h1 class="text-center">HELPER HOME</h1>
+    </div>
+    <div>
+        <img src="{% static 'core/image/helper2.png' %}" alt="" srcset="" height="500px" class="mt-2 offset-3">
+    </div>
+</div>
+
+
+{% endblock content %}

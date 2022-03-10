@@ -1,0 +1,20 @@
+{% extends 'core/index.html' %}
+
+{% block title %}  Login {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-3 col-sm-4 offset-4">
+        <a href="{% url 'adminlogin' %}" class="btn btn-primary pt-3 pb-3">ADMIN LOGIN</a>
+        
+    </div>
+    <div class="row pt-3 col-sm-4 offset-4">
+        <a href="{% url 'helperlogin' %}" class="btn btn-primary pt-3 pb-3">HELPER LOGIN</a>
+    </div>
+    
+</div>
+
+
+{% endblock content %}
+
+

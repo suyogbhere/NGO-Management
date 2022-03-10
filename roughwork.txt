@@ -1,0 +1,142 @@
+adminhome.html
+{% extends 'core/index.html' %}
+
+{% block heading %}
+                    <div>
+                        <h1 class='text-center h1'>Home</h1>
+                    </div>
+{% endblock heading %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class='row mt-5 mx-5 h1'>
+        <div class='col-3'>
+            <h3>Victim</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Councilor</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Event</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Sponcers</h3>
+        </div>
+    </div> <br> <br>  <br> <br> <br> <br>
+    <div class='row mt-5 mx-5 h1'>
+        <div class='col-3'>
+            <h3>Banner</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Helpers</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Helper Events</h3>
+        </div>
+        <div class='col-3'>
+            <h3>Helper in camps</h3>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+adminlogin.html
+{% extends 'core/index.html' %}
+
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block heading %}<h1 class="text-center mt-3">ADMIN LOGIN</h1>{% endblock heading %}
+
+{% block content %}
+<!-- <div class="text-center mt-5"> -->
+   <div class=" text-center mt-5 p-3 ">
+        <form action="{% url 'adminhome' %}" method="post">
+            {% csrf_token %}
+                {{form.as_p}}
+            <input type="submit" value="Login" class="btn btn-success">
+           <a href="/" class="btn btn-success  ">BACK</a>
+        </form>
+    </div>
+
+<!-- </div> -->
+{% endblock content %}
+
+
+
+login.html
+
+{% extends 'core/index.html' %}
+{% load static %}
+
+{% block title %}login{% endblock title %}
+
+{% block heading %}<h1 class="text-center">Login</h1>{% endblock heading %}
+
+{% block content %}
+<div class=" text-center my-5 container">
+    <a href="{% url 'adminlogin' %}" class="btn btn-success col-sm-3" > ADMIN LOGIN</a>
+    <a href="" class="btn btn-success col-sm-3 offset-2" > HELPER LOGIN</a> <br>
+    <div class="text-center my-5"><a href="/" class="btn btn-success col-sm-3 ">BACK</a></div>
+</div>
+<div>
+    <img src="{% static 'core/image/login.jpg' %}" class="img-fluid float-end mx-4"  alt="login" style=width:300px>
+</div>
+
+{% endblock content %}
+
+
+
+
+About.html
+{% extends 'core/index.html' %}
+
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block heading %}<h1 class="text-center mt-3">About Page</h1>{% endblock heading %}
+
+{% block content %}
+<div class="text-center mt-3">
+    <img src="{% static 'core/image/ngo.jpg' %}" class="img-fluid" alt="ngoimg"  width="500px">
+</div>
+<br>
+<h2 class="mx-3">ABOUT WEBSITE :</h2>
+    <p class="mx-3">This website is about NGO Mangement. In this website the leader of this website and store the information
+        about this  NGO. the NGO  arrange the camps and events that information <br>is store in this website. it also
+        helps the person to solve the problem with the help of councilor . The information about the victims and 
+        councilor are added in this website and store it. <br> the only leader means the admin only can access the 
+        adding and storing information 
+        <br>In this website there is helper login also with the help of that helper knows that in which camps or 
+            event they are in. in which person they are under  and which work they have to do. </p>
+
+ <h2 class="mx-3">ABOUT NGO :</h2>
+        <p class="mx-3">This is website of NGO MANAGEMENT SYSTEM. this system arrange the camps and event to  provide
+                the information about what is right and what is wrong .it also  arrange the camps like <br>blood donations,
+                superstition against, voilance,etc.. this NGO also helps the person which are in problem and helps them.
+                it accept the money from the donors. it some sponsers also.
+        </p> 
+ <h2 class="mx-3">FOLLOW US :</h2>
+ <div class="container">
+     <div class="row">
+        <div class="col-sm">
+            <i class="fab fa-facebook-square fa-5x mx-5"></i><a href="" class="mx-5"></a>
+         </div>
+         <div class="col-sm offset-2">
+            <i class="fab fa-instagram-square fa-5x mx-5"></i>
+         </div>
+     </div>
+     <div class="row mt-5">
+        <div class="col-sm">
+            <i class="fab fa-twitter-square fa-5x mx-5"></i>
+        </div>
+        <div class="col-sm offset-2">
+            <i class="fas fa-envelope-square fa-5x mx-5"></i>
+        </div>
+     </div>   
+</div> 
+{% endblock content %}

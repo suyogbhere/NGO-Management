@@ -1,0 +1,72 @@
+{% extends 'core/index.html' %}
+
+{% block content %}
+<div class="container-fluid" style="background-color: #caf0f8;">
+    <div class="col-sm-5 offset-3">
+        {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                {% endfor %}
+        {% endif %}  
+    </div>
+    <div class="row col-sm-5 offset-3 shadow " style="background-color: #dae673;">
+        <h1 class="text-center shadow" >HOME</h1>
+    <div>
+         <h5 class="text-center">Victims</h5>
+         <div class="row">
+            <a href="{% url 'victimpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'VictimData' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Councillor</h5>
+         <div class="row">
+            <a href="{% url 'councillorpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'councillorData' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Events</h5>
+         <div class="row">
+            <a href="{% url 'eventpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'eventdata' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Sponsers</h5>
+         <div class="row">
+            <a href="{% url 'sponsorpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'sponsorData' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div><br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Banner</h5>
+         <div class="row">
+            <a href="{% url 'bannerpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'bannerdata' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Helpers</h5>
+         <div class="row">
+            <a href="{% url 'helperpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'helperdata' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Helper In Events</h5>
+         <div class="row">
+            <a href="{% url 'helperineventpage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'helpereventdata' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div> <br>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Helper In Camps</h5>
+         <div class="row">
+            <a href="{% url 'helperincamppage' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-success ' value="Add"></a>
+            <a href="{% url 'helpercampdata' %}" class="offset-3 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div>
+        <!-- ################################################################################################# -->
+        <h5 class="text-center">Show Feedback</h5>
+         <div class="row">
+            <a href="{% url 'showfeedback' %}" class="offset-5 col-sm-1"><input type="button" class='btn btn-info ' value="See"></a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock content %}

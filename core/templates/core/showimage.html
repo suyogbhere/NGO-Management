@@ -1,0 +1,54 @@
+{% extends 'core/index.html' %}
+
+{% block content %}
+<div class="container-fluid" >
+    <div class="col-sm-5 offset-3">
+        {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                {% endfor %}
+        {% endif %}  
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td class="col">Name</td>
+                <td class="col">About_Image</td>
+                <td class="col text-center">Image</td>
+                <td class="col offset-2 ">Action</td>
+            </tr>
+        </thead>
+        {% for fm in form %}
+        <tr>
+            <td class="col-sm-2">{{fm.Name}}</td>
+            <td class="col-sm-3">{{fm.About_Image}}</td>
+            <td class="col-sm-7">
+                <div class="card mt-2">
+                    <img src="{{fm.Image.url}}" alt="" class="card-img-top me-5" height="250px">
+                </div>
+            </td>
+            <td>
+                <form action="{% url 'updateimg' fm.id %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="submit" value="Edit" class="btn btn-warning ">
+                </form> 
+                <form action="{% url 'deleteimg' fm.id %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="submit" value="Delete" class="btn btn-danger ">
+                </form>
+              </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+{% endblock content %}
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card mt-2">
+            <img src="{{fm.Image.url}}" alt="" class="card-img-top" height="200px">
+        </div>
+    </div> 
+</div>

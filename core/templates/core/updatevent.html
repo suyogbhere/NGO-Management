@@ -1,0 +1,29 @@
+{% extends 'core/index.html' %}
+
+{% block content %}
+<div class="col-sm-4 offset-4 bg-white" >
+    {% if messages %}
+        {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+    <h1 class=" text-center">Update Event Details</h1>
+    <form action="" method="post" novalidate class="shadow p-5">
+        {% csrf_token %}
+        {% for fm in form %}
+                {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+        {% endfor %} <br>
+        
+        <input type="submit" class='btn btn-outline-info' value="Update">
+        <a href="{% url 'adminhome' %}" class='btn btn-outline-primary offset-1'>Back</a>
+        <a href="{% url 'eventdata' %}" class="offset-1 col-sm-1"><input type="button" class='btn btn-outline-info ' value="View"></a>
+    </form>
+</div>
+
+
+{% endblock content %}
