@@ -43,14 +43,18 @@ class VictimForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Cuncilor_Name':forms.TextInput(attrs={'class':'form-control'}),
-            'Date_Of_Treatement':forms.SelectDateWidget()
+            'Date_Of_Treatement':forms.DateInput(),
+            'Victim_Type':forms.Select(attrs={'class':'form-select'})
         }
+
     
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        
+        
 
 
 class CouncillorForm(forms.ModelForm):
@@ -66,11 +70,12 @@ class CouncillorForm(forms.ModelForm):
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Age':forms.NumberInput(attrs={'class':'form-control'}),
         }
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+    
     
 
 class CampForm(forms.ModelForm):
@@ -117,11 +122,12 @@ class SponcerForm(forms.ModelForm):
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Amount':forms.NumberInput(attrs={'class':'form-control'}),
         }
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+    
         
 
 
@@ -150,12 +156,14 @@ class HelperForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Age':forms.NumberInput(attrs={'class':'form-control'}),
+            'Intrested':forms.Select(attrs={'class':'form-select'})
         }
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        
 
 
 class HelperInEventForm(forms.ModelForm):
@@ -169,11 +177,12 @@ class HelperInEventForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Monitor_Under':forms.TextInput(attrs={'class':'form-control'}),
         }
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+    
     
 
 class HelperInCampForm(forms.ModelForm):
@@ -187,11 +196,12 @@ class HelperInCampForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Monitor_Under':forms.TextInput(attrs={'class':'form-control'}),
         }
-    def clean(self):
-        cleaned_data=super().clean()
-        contact=self.cleaned_data['Contact']
-        if len(str(contact))!=10:
-            raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        def clean(self):
+            cleaned_data=super().clean()
+            contact=self.cleaned_data['Contact']
+            if len(str(contact))!=10:
+                raise forms.ValidationError('Please enter 10 digit Contact number!!')
+        
 
 class UploadForm(forms.ModelForm):
     class Meta:
@@ -200,7 +210,8 @@ class UploadForm(forms.ModelForm):
 
         widgets={
             'Name':forms.TextInput(attrs={'class':'form-control'}),
-            'About_Image':forms.Textarea(attrs={'class':'form-control','cols':1,'rows':3})
+            'About_Image':forms.Textarea(attrs={'class':'form-control','cols':1,'rows':3}),
+            'Image': forms.FileInput(attrs={'class':'form-control'})
         }
             
        

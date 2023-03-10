@@ -169,3 +169,4 @@ class UPLOAD_DETAILS(models.Model):
 class FEEDBACK_DETAILS(models.Model):
     Name=models.CharField(max_length=50)
     Feedback=models.CharField(max_length=70)
+

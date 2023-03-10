@@ -147,7 +147,7 @@ def update_image(request,id):
         pi=UPLOAD_DETAILS.objects.get(pk=id)
         fm=UploadForm(instance=pi)
     return render(request,'core/updateimage.html',{'form':fm})
-
+    
 # delete image
 def delete_image(request,id):
     if request.method=='POST':

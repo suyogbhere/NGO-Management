@@ -134,5 +134,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # message tag change
 MESSAGE_TAGS = {messages_s.ERROR:'danger'}
 
-# # DATE FORMAT
-# DATE_INPUT_FORMATS = ['%d-%m-%Y']

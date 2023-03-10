@@ -6,12 +6,18 @@
     <div class="col-sm-4 offset-4 bg-white" >
         {% if messages %}
             {% for message in messages %}
-                <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3 alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
             {% endfor %}
         {% endif %}
         {% if form.non_field_errors %}
             {% for error in form.non_field_errors %}
-                <p class="alert alert-danger my-3">{{error}}</p>
+                <p class="alert alert-danger my-3 alert-dismissible fade show" role="alert">{{error}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
             {% endfor %}
         {% endif %}
         <h1 class=" text-center">Victim Page</h1>

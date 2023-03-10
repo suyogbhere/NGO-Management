@@ -5,7 +5,10 @@
     <div class="col-sm-5 offset-3">
         {% if messages %}
                 {% for message in messages %}
-                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3" {% endif %}>{{message}}</p>
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                        </button>
+                    </p>
                 {% endfor %}
         {% endif %}  
     </div>
