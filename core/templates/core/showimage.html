@@ -23,17 +23,17 @@
         </thead>
         {% for fm in form %}
         <tr>
-            <td class="col-sm-2">{{fm.Name}}</td>
+            <td class="col-sm-2 ">{{fm.Name}}</td>
             <td class="col-sm-3">{{fm.About_Image}}</td>
-            <td class="col-sm-7">
+            <td class="col-sm-5">
                 <div class="card mt-2">
                     <img src="{{fm.Image.url}}" alt="" class="card-img-top me-5" height="250px">
                 </div>
             </td>
-            <td>
+            <td class="col-sm-2 ">
                 <form action="{% url 'updateimg' fm.id %}" method="post" class="d-inline">
                   {% csrf_token %}
-                  <input type="submit" value="Edit" class="btn btn-warning ">
+                  <input type="submit" value="Edit" class="btn btn-warning  ">
                 </form> 
                 <form action="{% url 'deleteimg' fm.id %}" method="post" class="d-inline">
                   {% csrf_token %}

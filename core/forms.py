@@ -43,7 +43,7 @@ class VictimForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Cuncilor_Name':forms.TextInput(attrs={'class':'form-control'}),
-            'Date_Of_Treatement':forms.DateInput(),
+            'Date_Of_Treatement':forms.SelectDateWidget(attrs={'class':'form-control'}),
             'Victim_Type':forms.Select(attrs={'class':'form-select'})
         }
 
@@ -106,7 +106,8 @@ class EventForm(forms.ModelForm):
             'Number_Of_Monitors':forms.NumberInput(attrs={'class':'form-control'}),
             'Number_Of_Helpers':forms.NumberInput(attrs={'class':'form-control'}),
             'Need_Of_Helpers':forms.NumberInput(attrs={'class':'form-control'}),
-            'Date_Of_Events':forms.SelectDateWidget(),
+            'Date_Of_Events':forms.SelectDateWidget(attrs={'class':'form-control'}),
+            'Event_Type': forms.Select(attrs={'class':'form-select'}),
         }
     
 
@@ -121,6 +122,9 @@ class SponcerForm(forms.ModelForm):
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Email':forms.EmailInput(attrs={'class':'form-control'}),
             'Amount':forms.NumberInput(attrs={'class':'form-control'}),
+            'sponcer_type':forms.Select(attrs={'class':'form-select'}),
+            'Sponsering_For':forms.Select(attrs={'class':'form-select'}),
+            'Payment_Type':forms.Select(attrs={'class':'form-select'}),
         }
         def clean(self):
             cleaned_data=super().clean()
@@ -141,6 +145,7 @@ class BannerForm(forms.ModelForm):
             'Number_Of_Banner':forms.NumberInput(attrs={'class':'form-control'}),
             'Size_Of_Banner':forms.NumberInput(attrs={'class':'form-control'}),
             'Address':forms.Textarea(attrs={'class':'form-control','cols':1,'rows':3,'PlaceHolder':'Enter Your Address'}),
+            'Banner_Type':forms.Select(attrs={'class':'form-control'})
         }
     
 
@@ -195,6 +200,8 @@ class HelperInCampForm(forms.ModelForm):
             'Camp_Name':forms.TextInput(attrs={'class':'form-control'}),
             'Contact':forms.NumberInput(attrs={'class':'form-control'}),
             'Monitor_Under':forms.TextInput(attrs={'class':'form-control'}),
+            'Type':forms.Select(attrs={'class':'form-select'}),
+            'Work':forms.Select(attrs={'class':'form-select'})
         }
         def clean(self):
             cleaned_data=super().clean()

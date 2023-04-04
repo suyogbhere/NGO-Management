@@ -21,3 +21,24 @@ li:hover{
     background-color: rgb(8, 31, 28);
     height: 50px;
 } */
+
+
+.nav-item:hover{
+    background-color: lightblue;
+}
+
+#id_Date_Of_Events_month, #id_Date_Of_Events_day,#id_Date_Of_Events_year,
+#id_Date_Of_Treatement_month,#id_Date_Of_Treatement_day,#id_Date_Of_Treatement_year{
+    width: 60px;
+    display: inline;
+    margin: 2px;
+    padding: auto;
+}
+
+/* #id_Date_Of_Events_day{
+    width: 50px;
+}
+
+#id_Date_Of_Events_year{
+    width: 50px;
+} */
